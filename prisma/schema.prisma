@@ -12,13 +12,13 @@ datasource db {
 }
 
 model User {
-  id Bytes @id @default(auto()) @map("_id") @db.ObjectId
+  id String @id @default(auto()) @map("_id") @db.ObjectId
 
   name          String
   email         String @unique
   password      String
   cpf           String
-  birthday_date DateTime
+  birthday_date String
   address       String
   gender        String
 
