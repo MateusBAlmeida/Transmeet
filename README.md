@@ -75,15 +75,15 @@ Nest is [MIT licensed](LICENSE).
 
 ## MongoDB 
 
-- Link: https://cloud.mongodb.com
+- **Link:** mongodb://transmeet.oueo5.mongodb.net/transmeet
 
-- User: root
-- Pass: 0DZ62be7bVwpuC35
+- **User:** root
+- **Pass:** 0DZ62be7bVwpuC35
 
 ## API Heroku
 
 - Link: https://transmeet.herokuapp.com
 
-[EndPoints]
-- Cadastro: https://transmeet.herokuapp.com/user
-- Login: https://transmeet.herokuapp.com/login
+**EndPoints**
+- **Cadastro:** https://transmeet.herokuapp.com/user
+- **Login:** https://transmeet.herokuapp.com/login
