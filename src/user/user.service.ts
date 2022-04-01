@@ -3,7 +3,6 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import * as bcrypt from 'bcrypt'
 import { UpdateUserDto } from './dto/update-user.dto';
-import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class UserService {
@@ -22,7 +21,6 @@ export class UserService {
       ...createdUser,
       password: undefined,
     };
-    // return data;
   }
 
   findByEmail(email: string) {
