@@ -85,5 +85,37 @@ Nest is [MIT licensed](LICENSE).
 - Link: https://transmeet.herokuapp.com
 
 **EndPoints**
-- **Cadastro:** https://transmeet.herokuapp.com/user
-- **Login:** https://transmeet.herokuapp.com/login
+- **Cadastro(POST):** https://transmeet.herokuapp.com/user
+- **Login(POST):** https://transmeet.herokuapp.com/login
+
+## Retorno da Requisições
+
+**Cadastro**
+
+Exemplo de entrada(cadastro já existente no banco):
+
+```bash
+{
+    "name": "Carla Silva",
+    "email": "carla@gmail.com",
+    "password": "Amarelo34",
+    "cpf": "12345678",
+    "birthday_date": "30/03/1996",
+    "address": "São Paulo - SP",
+    "gender": "Feminino"
+}
+```
+
+Retorno do cadastro:
+
+```bash
+{
+    "name": "Carla Silva",
+    "email": "carla@gmail.com",
+    "password": undefined,
+    "cpf": "12345678",
+    "birthday_date": "30/03/1996",
+    "address": "São Paulo - SP",
+    "gender": "Feminino"
+}
+```
