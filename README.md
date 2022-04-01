@@ -119,3 +119,16 @@ Retorno do cadastro:
     "gender": "Feminino"
 }
 ```
+
+**Login**
+
+Entrada:
+
+```bash
+{
+    "email": "carla@gmail.com",
+    "password": "Amarelo34"
+}
+```
+
+Se os dados baterem, será retornado um access token, que será utilizado para as autenticações nas outras rotas.
