@@ -75,7 +75,60 @@ Nest is [MIT licensed](LICENSE).
 
 ## MongoDB 
 
-https://cloud.mongodb.com
+- **Link:** mongodb://transmeet.oueo5.mongodb.net/transmeet
 
-user: root
-Pass: 0DZ62be7bVwpuC35
+- **User:** root
+- **Pass:** 0DZ62be7bVwpuC35
+
+## API Heroku
+
+- Link: https://transmeet.herokuapp.com
+
+**EndPoints**
+- **Cadastro(POST):** https://transmeet.herokuapp.com/user
+- **Login(POST):** https://transmeet.herokuapp.com/login
+
+## Retorno da Requisições
+
+**Cadastro**
+
+Exemplo de entrada(cadastro já existente no banco):
+
+```bash
+{
+    "name": "Carla Silva",
+    "email": "carla@gmail.com",
+    "password": "Amarelo34",
+    "cpf": "12345678",
+    "birthday_date": "30/03/1996",
+    "address": "São Paulo - SP",
+    "gender": "Feminino"
+}
+```
+
+Retorno do cadastro:
+
+```bash
+{
+    "name": "Carla Silva",
+    "email": "carla@gmail.com",
+    "password": undefined,
+    "cpf": "12345678",
+    "birthday_date": "30/03/1996",
+    "address": "São Paulo - SP",
+    "gender": "Feminino"
+}
+```
+
+**Login**
+
+Entrada:
+
+```bash
+{
+    "email": "carla@gmail.com",
+    "password": "Amarelo34"
+}
+```
+
+Se os dados baterem, será retornado um access token, que será utilizado para as autenticações nas outras rotas.
