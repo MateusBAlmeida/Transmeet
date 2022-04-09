@@ -23,8 +23,8 @@ import { AuthRequest } from './models/AuthRequest';
     @Post('login')
     @HttpCode(HttpStatus.OK)
     async login(@Request() req: AuthRequest) {
-        console.log(req.user);
+        console.log(req.account);
         
-        return this.authService.login(req.user);
+        return this.authService.login(req.account);
     }
   }

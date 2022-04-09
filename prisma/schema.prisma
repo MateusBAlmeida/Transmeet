@@ -1,25 +1,50 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["mongoDb"]
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model accounts {
+  id                            Int     @id
+  name                          String? @db.VarChar
+  email                         String? @unique @db.VarChar
+  password                      String? @db.VarChar
+  regNumber                     String? @db.VarChar
+  telephone                     String? @db.VarChar
+  site                          String? @db.VarChar
+  birthDate                     String? @db.VarChar
+  gender                        String? @db.VarChar
+  address                       String? @db.VarChar
+  city                          String? @db.VarChar
+  description                   String? @db.VarChar
+  typeId                        Int?
+  stateId                       Int?
+  states                        states? @relation(fields: [stateId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  types                         types?  @relation(fields: [typeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  match_accountsTomatch_useraId match[] @relation("accountsTomatch_useraId")
+  match_accountsTomatch_userbId match[] @relation("accountsTomatch_userbId")
+}
 
-  name          String
-  email         String @unique
-  password      String
-  cpf           String
-  birthday_date String
-  address       String
-  gender        String
+model match {
+  id                               Int       @id
+  useraId                          Int?
+  userbId                          Int?
+  accept                           Boolean?
+  accounts_accountsTomatch_useraId accounts? @relation("accountsTomatch_useraId", fields: [useraId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  accounts_accountsTomatch_userbId accounts? @relation("accountsTomatch_userbId", fields: [userbId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
 
+model states {
+  id       Int        @id
+  name     String?    @db.VarChar
+  accounts accounts[]
+}
+
+model types {
+  id       Int        @id
+  name     String?    @db.VarChar
+  accounts accounts[]
 }

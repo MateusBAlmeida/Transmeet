@@ -1,7 +1,6 @@
 import { Account } from "src/account/entities/account.entity";
 
-export class User extends Account {
-    birthDate: string;
-    gender: string;
+export class Sponsor extends Account {
     address: string;
+    site: string;
 }
