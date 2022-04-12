@@ -1,10 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsEmail, MinLength, MaxLength, Matches, IsBoolean, IsNumber } from "class-validator";
+import { IsString, IsEmail, MinLength, MaxLength, Matches, IsNumber, IsUrl } from "class-validator";
 import { Account } from "../entities/account.entity";
-import { StateDto } from "./state.dto";
-import { TypeDto } from "./type.dto";
 
 export class CreateAccountDto extends Account {
+
     @ApiProperty()
     @IsString()
     name: string;
@@ -39,9 +38,24 @@ export class CreateAccountDto extends Account {
     description: string;
     
     @ApiProperty()
-    states: StateDto;
+    @IsNumber()
+    stateId: number;
 
     @ApiProperty()
-    types: TypeDto;
+    @IsNumber()
+    typeId: number;
+
+    @ApiProperty()
+    birthDate: string;
+
+    @IsString()
+    address: string;
+
+    @ApiProperty()
+    gender: string;
+
+    @ApiProperty()
+    site: string;
+
 
 }

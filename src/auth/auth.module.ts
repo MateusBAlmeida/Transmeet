@@ -6,10 +6,12 @@ import { AuthService } from './auth.service';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { AccountModule } from 'src/account/account.module';
+import { UserModule } from 'src/user/user.module';
 
 
 @Module({
     imports: [
+        UserModule,
         AccountModule,
         PassportModule,
         JwtModule.register({

@@ -3,16 +3,16 @@ import { CreateSponsorDto } from './dto/create-sponsor.dto';
 import * as bcrypt from 'bcrypt'
 import { UpdateSponsorDto } from './dto/update-sponsor.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { AccountService } from 'src/account/account.service';
 
 @Injectable()
-export class SponsorService {
-  constructor(private readonly prisma: PrismaService) {}
+export class SponsorService extends AccountService {
+  // constructor(private readonly prisma: PrismaService) {}
 
   async create(createSponsorDto: CreateSponsorDto) {
     const data = {
       ...createSponsorDto,
       password: await bcrypt.hash(createSponsorDto.password, 10),
-      isSponsor: true
     };
 
     const createdSponsor = await this.prisma.accounts.create({data});
@@ -23,9 +23,9 @@ export class SponsorService {
     };
   }
 
-  findByEmail(email: string) {
-    return this.prisma.accounts.findUnique({
-      where: { email },
-    });
-  }
+  // findByEmail(email: string) {
+  //   return this.prisma.accounts.findUnique({
+  //     where: { email },
+  //   });
+  // }
 }

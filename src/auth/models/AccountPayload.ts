@@ -3,5 +3,5 @@ export interface AccountPayload {
     email: string;
     name: string;
     iat?: number;
-    exp?: number
+    exp?: number;
 }

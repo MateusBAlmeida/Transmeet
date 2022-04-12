@@ -10,6 +10,7 @@ import { ApiTags } from '@nestjs/swagger';
   import { AuthService } from './auth.service';
 import { IsPublic } from './decorators/is-public.decorator';
   import { LocalAuthGuard } from './guards/local-auth.guard';
+import { AccountToken } from './models/AccountToken';
 import { AuthRequest } from './models/AuthRequest';
   
   
@@ -22,9 +23,7 @@ import { AuthRequest } from './models/AuthRequest';
     @UseGuards(LocalAuthGuard)
     @Post('login')
     @HttpCode(HttpStatus.OK)
-    async login(@Request() req: AuthRequest) {
-        console.log(req.account);
-        
-        return this.authService.login(req.account);
+    async login(@Request() req: AuthRequest) {        
+        return this.authService.login(req.body);
     }
   }

@@ -1,8 +1,6 @@
-import { State } from "./state.entity";
-import { Type } from "./type.entity";
 
 export class Account {
-    id: number;
+    id?: number;
     name: string;
     email: string;
     telephone: string;
@@ -10,6 +8,10 @@ export class Account {
     regNumber: string;
     description: string;
     city: string;
-    states: State;
-    types: Type;
+    birthDate: string;
+    gender: string;
+    address: string;
+    site: string;
+    stateId: number;
+    typeId: number;
 }
