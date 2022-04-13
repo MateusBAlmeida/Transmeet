@@ -73,36 +73,89 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 Nest is [MIT licensed](LICENSE).
 "# ioasys" 
 
-## MongoDB 
+## Postgres
 
-- **Link:** mongodb://transmeet.oueo5.mongodb.net/transmeet
-
-- **User:** root
+- **User:** postgres
 - **Pass:** 0DZ62be7bVwpuC35
+
+**Tabelas de Estados**
+
+```bash
+-----+---------------------
+| id |        name        |
+-----+---------------------
+|  1 | Acre               |
+|  2 | Alagoas            |
+|  3 | Amapá              |
+|  4 | Amazonas           |
+|  5 | Bahia              |
+|  6 | Ceará              |
+|  7 | Espírito Santo     |
+|  8 | Goiás              |
+|  9 | Maranhão           |
+| 10 | Mato Grosso        |
+| 11 | Mato Grosso do Sul |
+| 12 | Minas Gerais       |
+| 13 | Pará               |
+| 14 | Paraná             |
+| 15 | Paraíba            |
+| 16 | Pernambuco         |
+| 17 | Piauí              |
+| 18 | Rio de Janeiro     |
+| 19 | Rio Grande do Norte|
+| 20 | Rio Grande do Sul  |
+| 21 | Rondônia           |
+| 22 | Roraima            |
+| 23 | Santa Catarina     |
+| 24 | São Paulo          |
+| 25 | Sergipe            |
+| 26 | Tocantins          |
+| 27 | Distrito Federal   |
+-----+---------------------
+```
+**Tabela de Tipos**
+
+```bash
+-----+---------------------
+| id |       name         |
+-----+---------------------
+|  1 | User               |
+|  2 | Sponsor            |
+-----+---------------------
+```
 
 ## API Heroku
 
 - Link: https://transmeet.herokuapp.com
 
 **EndPoints**
-- **Cadastro(POST):** https://transmeet.herokuapp.com/user
+- **Cadastro de Usuários - Pessoas trans (POST):** https://transmeet.herokuapp.com/users
+- **Cadastro de Patrocinadores (POST):** https://transmeet.herokuapp.com/sponsors
+- **Retorno dos Usuários - Pessoas trans (GET):** https://transmeet.herokuapp.com/users
+- **Retorno dos Patrocinadores (GET):** https://transmeet.herokuapp.com/sponsors
 - **Login(POST):** https://transmeet.herokuapp.com/login
 
 ## Retorno da Requisições
 
 **Cadastro**
 
-Exemplo de entrada(cadastro já existente no banco):
+Exemplo de entrada:
 
+User:
 ```bash
 {
     "name": "Carla Silva",
     "email": "carla@gmail.com",
     "password": "Amarelo34",
-    "cpf": "12345678",
-    "birthday_date": "30/03/1996",
-    "address": "São Paulo - SP",
-    "gender": "Feminino"
+    "regNumber": "12345678",
+    "birthDate": "03/03/1996",
+    "address": "Rua 1, Bairo 2",
+    "gender": "Feminino",
+    "description": "Teste",
+    "telephone": "01140028922",
+    "city": "São Paulo",
+    "stateId": 24, //ID do estado de São Paulo (Consulte a tabela apresentada acima)
+    "typeId": 1 //ID do tipo "User" na tabela types (Consulte a tabela apresentada acima)
 }
 ```
 
@@ -113,10 +166,50 @@ Retorno do cadastro:
     "name": "Carla Silva",
     "email": "carla@gmail.com",
     "password": undefined,
-    "cpf": "12345678",
-    "birthday_date": "30/03/1996",
-    "address": "São Paulo - SP",
-    "gender": "Feminino"
+    "regNumber": "12345678",
+    "birthDate": "03/03/1996",
+    "address": "Rua 1, Bairo 2",
+    "gender": "Feminino",
+    "description": "Teste",
+    "telephone": "01140028922",
+    "city": "São Paulo",
+    "stateId": 24,
+    "typeId": 1 
+}
+```
+
+Sponsor:
+```bash
+{
+    "name": "Limeira Pisos",
+    "email": "contato@limeira.com",
+    "password": "Fortune26",
+    "regNumber": "12345678/0001",
+    "address": "Rua 5, Bairo 8",
+    "description": "Teste",
+    "telephone": "01140028922",
+    "city": "São Paulo",
+    "site": "limeirapisos.com.br",
+    "stateId": 24, //ID do estado de São Paulo (Consulte a tabela apresentada acima)
+    "typeId": 2 //ID do tipo "Sponsor" na tabela types (Consulte a tabela apresentada acima)
+}
+```
+
+Retorno do Cadastro:
+
+```bash
+{
+    "name": "Limeira Pisos",
+    "email": "contato@limeira.com",
+    "password": undefined,
+    "regNumber": "12345678/0001",
+    "address": "Rua 5, Bairo 8",
+    "description": "Teste",
+    "telephone": "01140028922",
+    "city": "São Paulo",
+    "site": "limeirapisos.com.br",
+    "stateId": 24, //ID do estado de São Paulo
+    "typeId": 2 //ID do tipo "Sponsor" na tabela types
 }
 ```
 
