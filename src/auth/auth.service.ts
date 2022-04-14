@@ -28,6 +28,7 @@ export class AuthService {
 
         return {
             access_token: jwtToken,
+            account: await this.accountService.findByEmail(payload.email),
         };
     }
     
