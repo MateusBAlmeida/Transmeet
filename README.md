@@ -229,4 +229,5 @@ Se os dados baterem, será retornado um access token, que será utilizado para a
 **Busca de Usuários**
 
 Os endpoints são os mesmos de busca (/users ou /sponsors). Porém, para aplicar o termo a ser pesquisado, deve-se adicionar no fim da url o termo a ser pesquisado. 
+
 *Exemplo:* https://transmeet.herokuapp.com/users/car || Essa url retorna todos os Usuários que possuam "car" em seu nome. A busca é case-insensitive, ou seja, ignora a diferença entre letras maiúsculas e minúsculas.
