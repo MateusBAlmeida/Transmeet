@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -15,8 +15,13 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
 
-  @Get()
-  findAll(){
-    return this.userService.findAllUsers();
+  @Get(':name')
+  findByName(@Param('name') name: string){
+    return this.userService.findUsersByName(name);
   }
+
+  // @Get()
+  // findAll(){
+  //   return this.userService.findAllUsers();
+  // }
 }

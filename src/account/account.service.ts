@@ -24,11 +24,19 @@ export class AccountService {
   // }
 
   findAllSponsors(){
-    return this.prisma.accounts.findMany({where:{typeId: 2}})
+    return this.prisma.accounts.findMany({where:{typeId: 2}});
+  }
+
+  findSponsorsByName(name: string){
+    return this.prisma.accounts.findMany({where:{name: {contains: name, mode: 'insensitive'},typeId: 2}});
+  }
+
+  findUsersByName(name: string){
+    return this.prisma.accounts.findMany({where:{name: {contains: name, mode: 'insensitive'},typeId: 1}});
   }
 
   findAllUsers(){
-    return this.prisma.accounts.findMany({where:{typeId: 1}})
+    return this.prisma.accounts.findMany({where:{typeId: 1}});
   }
 
   findByEmail(email: string) {

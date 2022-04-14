@@ -13,6 +13,12 @@ export class SponsorController {
   findAll(){
     return this.sponsorService.findAllSponsors();
   }
+
+  @Get()
+  findByName(name: string){
+    return this.sponsorService.findSponsorsByName(name);
+  }
+
   @IsPublic()
   @Post()
   create(@Body() createSponsorDto: CreateSponsorDto) {
