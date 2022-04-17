@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param } from '@nestjs/common';
 import { SponsorService } from './sponsor.service';
 import { CreateSponsorDto } from './dto/create-sponsor.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -14,8 +14,8 @@ export class SponsorController {
     return this.sponsorService.findAllSponsors();
   }
 
-  @Get()
-  findByName(name: string){
+  @Get(':name')
+  findByName(@Param('name') name: string){
     return this.sponsorService.findSponsorsByName(name);
   }
 

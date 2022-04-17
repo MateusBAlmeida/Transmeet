@@ -8,10 +8,11 @@ import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { SponsorModule } from './sponsor/sponsor.module';
 import { AccountModule } from './account/account.module';
+import { MatchModule } from './match/match.module';
 
 @Module({
   imports: [
-    AuthModule, PrismaModule, UserModule, SponsorModule, AccountModule],
+    AuthModule, PrismaModule, UserModule, SponsorModule, AccountModule, MatchModule],
   controllers: [AppController],
   providers: [AppService, {
     provide: APP_GUARD,
