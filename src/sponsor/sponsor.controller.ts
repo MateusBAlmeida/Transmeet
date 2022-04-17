@@ -14,8 +14,8 @@ export class SponsorController {
     return this.sponsorService.findAllSponsors();
   }
 
-  @Get()
-  findByName(name: string){
+  @Get(':name')
+  findByName(@Param('name') name: string){
     return this.sponsorService.findSponsorsByName(name);
   }
 
