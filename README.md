@@ -76,7 +76,6 @@ Nest is [MIT licensed](LICENSE).
 ## Postgres
 
 - **User:** postgres
-- **Pass:** 0DZ62be7bVwpuC35
 
 **Tabelas de Estados**
 
@@ -154,8 +153,8 @@ User:
     "description": "Teste",
     "telephone": "01140028922",
     "city": "São Paulo",
-    "stateId": 24, //ID do estado de São Paulo (Consulte a tabela apresentada acima)
-    "typeId": 1 //ID do tipo "User" na tabela types (Consulte a tabela apresentada acima)
+    "stateId": 24, ##ID do estado de São Paulo (Consulte a tabela apresentada acima)
+    "typeId": 1 ##ID do tipo "User" na tabela types (Consulte a tabela apresentada acima)
 }
 ```
 
@@ -190,8 +189,8 @@ Sponsor:
     "telephone": "01140028922",
     "city": "São Paulo",
     "site": "limeirapisos.com.br",
-    "stateId": 24, //ID do estado de São Paulo (Consulte a tabela apresentada acima)
-    "typeId": 2 //ID do tipo "Sponsor" na tabela types (Consulte a tabela apresentada acima)
+    "stateId": 24, ##ID do estado de São Paulo (Consulte a tabela apresentada acima)
+    "typeId": 2 ##ID do tipo "Sponsor" na tabela types (Consulte a tabela apresentada acima)
 }
 ```
 
@@ -208,8 +207,8 @@ Retorno do Cadastro:
     "telephone": "01140028922",
     "city": "São Paulo",
     "site": "limeirapisos.com.br",
-    "stateId": 24, //ID do estado de São Paulo
-    "typeId": 2 //ID do tipo "Sponsor" na tabela types
+    "stateId": 24, ##ID do estado de São Paulo
+    "typeId": 2 ##ID do tipo "Sponsor" na tabela types
 }
 ```
 
@@ -231,3 +230,47 @@ Se os dados baterem, será retornado um access token, que será utilizado para a
 Os endpoints são os mesmos de busca (/users ou /sponsors). Porém, para aplicar o termo a ser pesquisado, deve-se adicionar no fim da url o termo a ser pesquisado. 
 
 *Exemplo:* https://transmeet.herokuapp.com/users/car || Essa url retorna todos os Usuários que possuam "car" em seu nome. A busca é case-insensitive, ou seja, ignora a diferença entre letras maiúsculas e minúsculas.
+
+
+## Matches e Requisições
+
+**Cadastro de Pedido de Auxílio**
+
+- Endpoint (POST): https://transmeet.herokuapp.com/match
+- Corpo da requisição:
+```bash
+{
+  "idUser": ##id do usuário requisitante
+  "idSponsor": ##id do patrocinador 
+}
+```
+**Busca de solicitações
+
+Nesse endpoint a API retorna todas solicitações para determinada conta, tendo a necessidade de enviar o id da conta na URL.
+
+- Endpoint (GET): https://transmeet.herokuapp.com/match/sponsors/:id //Específica para Patrocinadores
+                  https://transmeet.herokuapp.com/match/users/:id    //Específica para Usuários
+- O retorno será o conteudo daquela requisição.
+
+No endpoint abaixo, será retornada uma requisição especificada pelo id na URL.
+
+- Endpoint (GET): https://transmeet.herokuapp.com/match/:id
+- O retorno é o dado da requisição e os dados da conta atribuida no corpo da requisição:
+```bash
+{
+  "idAccount": ##id da conta a ser retornada
+}
+```
+
+**Confirmação ou rejeição do patrocinio
+
+Aqui o patrocinador irá dizer se o pedido será aceito para uma futura negociação entre as partes ou se será rejeitada.
+
+- Endpoint (PATCH): https://transmeet.herokuapp.com/match/:id //Id da solicitação
+- Se a requisição foi aceita ou não deverá ser enviada pelo corpo:
+```bash
+{
+  "response": ## 'true' ou 'false'
+}
+```
+
