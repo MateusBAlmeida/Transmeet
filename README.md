@@ -153,8 +153,8 @@ User:
     "description": "Teste",
     "telephone": "01140028922",
     "city": "São Paulo",
-    "stateId": 24, //ID do estado de São Paulo (Consulte a tabela apresentada acima)
-    "typeId": 1 //ID do tipo "User" na tabela types (Consulte a tabela apresentada acima)
+    "stateId": 24, ##ID do estado de São Paulo (Consulte a tabela apresentada acima)
+    "typeId": 1 ##ID do tipo "User" na tabela types (Consulte a tabela apresentada acima)
 }
 ```
 
@@ -189,8 +189,8 @@ Sponsor:
     "telephone": "01140028922",
     "city": "São Paulo",
     "site": "limeirapisos.com.br",
-    "stateId": 24, //ID do estado de São Paulo (Consulte a tabela apresentada acima)
-    "typeId": 2 //ID do tipo "Sponsor" na tabela types (Consulte a tabela apresentada acima)
+    "stateId": 24, ##ID do estado de São Paulo (Consulte a tabela apresentada acima)
+    "typeId": 2 ##ID do tipo "Sponsor" na tabela types (Consulte a tabela apresentada acima)
 }
 ```
 
@@ -207,8 +207,8 @@ Retorno do Cadastro:
     "telephone": "01140028922",
     "city": "São Paulo",
     "site": "limeirapisos.com.br",
-    "stateId": 24, //ID do estado de São Paulo
-    "typeId": 2 //ID do tipo "Sponsor" na tabela types
+    "stateId": 24, ##ID do estado de São Paulo
+    "typeId": 2 ##ID do tipo "Sponsor" na tabela types
 }
 ```
 
