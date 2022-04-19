@@ -23,7 +23,8 @@ export class MatchController {
   }
 
   @Get(':id')
-  showMatch(@Param('id') id: number, @Body()idAccount) {
+  showMatch(@Param('id') id: number, @Body('idAccount') idAccount: number) {
+    console.log(idAccount)
     return this.matchService.findOne(id, idAccount);
   }
 

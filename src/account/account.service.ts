@@ -23,12 +23,18 @@ export class AccountService {
   //   }
   // }
 
-  findAllSponsors(){
-    return this.prisma.accounts.findMany({where:{typeId: 2}});
+  async findAllSponsors(){
+    const accounts= await this.prisma.accounts.findMany({where:{typeId: 2}})
+    //const result =accounts.forEach(function (element){element}) 
+    return accounts;
   }
 
-  findById(id: number){
-    return this.prisma.accounts.findUnique({where:{id}});
+  async findById(id: number){
+    const account = await this.prisma.accounts.findUnique({where:{id}});
+    return {
+      ...account,
+      password: undefined
+    }
   }
 
   findSponsorsByName(name: string){

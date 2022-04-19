@@ -34,12 +34,12 @@ export class MatchService {
     });
   }
 
-  findOne(id: number, idSponsor: number) {
+  async findOne(id: number, idAccount: number) {
     return {
-      result: this.prisma.match.findUnique({
+      result: await this.prisma.match.findFirst({
         where: { id }
       }),
-      account: this.accountService.findById(idSponsor)
+      account: await this.accountService.findById(idAccount)
     };
   }
 
