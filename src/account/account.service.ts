@@ -27,6 +27,10 @@ export class AccountService {
     return this.prisma.accounts.findMany({where:{typeId: 2}});
   }
 
+  findById(id: number){
+    return this.prisma.accounts.findUnique({where:{id}});
+  }
+
   findSponsorsByName(name: string){
     return this.prisma.accounts.findMany({where:{name: {contains: name, mode: 'insensitive'},typeId: 2}});
   }
