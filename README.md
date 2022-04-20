@@ -244,7 +244,7 @@ Os endpoints são os mesmos de busca (/users ou /sponsors). Porém, para aplicar
   "idSponsor": ##id do patrocinador 
 }
 ```
-**Busca de solicitações
+**Busca de solicitações**
 
 Nesse endpoint a API retorna todas solicitações para determinada conta, tendo a necessidade de enviar o id da conta na URL.
 
@@ -258,7 +258,7 @@ No endpoint abaixo, será retornada os dados do pedido de patrocinio.
 - O retorno é o dado da requisição e os dados das contas atribuidas.
 
 
-**Confirmação ou rejeição do patrocinio
+**Confirmação ou rejeição do patrocinio**
 
 Aqui o patrocinador irá dizer se o pedido será aceito para uma futura negociação entre as partes ou se será rejeitada.
 
