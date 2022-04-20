@@ -252,15 +252,11 @@ Nesse endpoint a API retorna todas solicitações para determinada conta, tendo 
                   https://transmeet.herokuapp.com/match/users/:id    //Específica para Usuários
 - O retorno será o conteudo daquela requisição.
 
-No endpoint abaixo, será retornada uma requisição especificada pelo id na URL.
+No endpoint abaixo, será retornada os dados do pedido de patrocinio.
 
 - Endpoint (GET): https://transmeet.herokuapp.com/match/:id
-- O retorno é o dado da requisição e os dados da conta atribuida no corpo da requisição:
-```bash
-{
-  "idAccount": ##id da conta a ser retornada
-}
-```
+- O retorno é o dado da requisição e os dados das contas atribuidas.
+
 
 **Confirmação ou rejeição do patrocinio
 
