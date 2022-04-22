@@ -23,10 +23,27 @@ export class AccountService {
   //   }
   // }
 
-  async findAllSponsors(){
-    const accounts= await this.prisma.accounts.findMany({where:{typeId: 2}})
-    //const result =accounts.forEach(function (element){element}) 
-    return accounts;
+  async findAllSponsors(){ 
+    return this.prisma.accounts.findMany({
+      where:{typeId: 2},
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        telephone: true,
+        regNumber: true,
+        description: true,
+        city: true,
+        address: true,
+        site: true,
+        states: {
+          select: {name: true}
+        },
+        types: {
+          select: {name: true}
+        }
+      }
+    });
   }
 
   async findById(id: number){
@@ -38,15 +55,84 @@ export class AccountService {
   }
 
   findSponsorsByName(name: string){
-    return this.prisma.accounts.findMany({where:{name: {contains: name, mode: 'insensitive'},typeId: 2}});
+    return this.prisma.accounts.findMany({
+      where: {
+        name: {
+          contains: name, mode: 'insensitive'
+        },
+        typeId: 2
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        telephone: true,
+        regNumber: true,
+        description: true,
+        city: true,
+        address: true,
+        site: true,
+        states: {
+          select: {name: true}
+        },
+        types: {
+          select: {name: true}
+        }
+      }
+    });
   }
 
   findUsersByName(name: string){
-    return this.prisma.accounts.findMany({where:{name: {contains: name, mode: 'insensitive'},typeId: 1}});
+    return this.prisma.accounts.findMany({
+      where: {
+        name: {
+          contains: name, mode: 'insensitive'
+        },
+        typeId: 1
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        telephone: true,
+        regNumber: true,
+        description: true,
+        city: true,
+        birthDate: true,
+        gender: true,
+        address: true,
+        states: {
+          select: {name: true}
+        },
+        types: {
+          select: {name: true}
+        }
+      }
+    });
   }
 
   findAllUsers(){
-    return this.prisma.accounts.findMany({where:{typeId: 1}});
+    return this.prisma.accounts.findMany({
+      where:{typeId: 1},
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        telephone: true,
+        regNumber: true,
+        description: true,
+        city: true,
+        birthDate: true,
+        gender: true,
+        address: true,
+        states: {
+          select: {name: true}
+        },
+        types: {
+          select: {name: true}
+        }
+      }
+    });
   }
 
   findByEmail(email: string) {

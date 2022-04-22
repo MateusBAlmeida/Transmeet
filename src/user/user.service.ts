@@ -12,6 +12,11 @@ export class UserService extends AccountService {
   async create(createUserDto: CreateUserDto) {
     const data = {
       ...createUserDto,
+      name: createUserDto.name.trim(),
+      email: createUserDto.email.trim(),
+      description: createUserDto.description.trim(),
+      city: createUserDto.city.trim(),
+      address:createUserDto.address.trim(),
       password: await bcrypt.hash(createUserDto.password, 10)
     };
 

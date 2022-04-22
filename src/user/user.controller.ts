@@ -20,8 +20,8 @@ export class UserController {
     return this.userService.findUsersByName(name);
   }
 
-  // @Get()
-  // findAll(){
-  //   return this.userService.findAllUsers();
-  // }
+  @Get()
+  findAll(){
+    return this.userService.findAllUsers();
+  }
 }

@@ -12,6 +12,12 @@ export class SponsorService extends AccountService {
   async create(createSponsorDto: CreateSponsorDto) {
     const data = {
       ...createSponsorDto,
+      name: createSponsorDto.name.trim(),
+      email: createSponsorDto.email.trim(),
+      description: createSponsorDto.description.trim(),
+      city: createSponsorDto.city.trim(),
+      address:createSponsorDto.address.trim(),
+      site: createSponsorDto.site.trim(),
       password: await bcrypt.hash(createSponsorDto.password, 10),
     };
 

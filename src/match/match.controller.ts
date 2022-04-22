@@ -23,13 +23,12 @@ export class MatchController {
   }
 
   @Get(':id')
-  showMatch(@Param('id') id: number, @Body('idAccount') idAccount: number) {
-    console.log(idAccount)
-    return this.matchService.findOne(id, idAccount);
+  showMatch(@Param('id') id: number) {
+    return this.matchService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: number,@Body() response: boolean){
+  update(@Param('id') id: number,@Body('response') response: boolean){
     return this.matchService.update(id, response);
   }
 
