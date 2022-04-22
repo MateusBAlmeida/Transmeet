@@ -244,7 +244,7 @@ Os endpoints são os mesmos de busca (/users ou /sponsors). Porém, para aplicar
   "idSponsor": ##id do patrocinador 
 }
 ```
-**Busca de solicitações
+**Busca de solicitações**
 
 Nesse endpoint a API retorna todas solicitações para determinada conta, tendo a necessidade de enviar o id da conta na URL.
 
@@ -252,17 +252,13 @@ Nesse endpoint a API retorna todas solicitações para determinada conta, tendo 
                   https://transmeet.herokuapp.com/match/users/:id    //Específica para Usuários
 - O retorno será o conteudo daquela requisição.
 
-No endpoint abaixo, será retornada uma requisição especificada pelo id na URL.
+No endpoint abaixo, será retornada os dados do pedido de patrocinio.
 
 - Endpoint (GET): https://transmeet.herokuapp.com/match/:id
-- O retorno é o dado da requisição e os dados da conta atribuida no corpo da requisição:
-```bash
-{
-  "idAccount": ##id da conta a ser retornada
-}
-```
+- O retorno é o dado da requisição e os dados das contas atribuidas.
 
-**Confirmação ou rejeição do patrocinio
+
+**Confirmação ou rejeição do patrocinio**
 
 Aqui o patrocinador irá dizer se o pedido será aceito para uma futura negociação entre as partes ou se será rejeitada.
 
